@@ -95,7 +95,7 @@ done
 
 # 加载bash脚本
 load() {
-    . $is_sh_dir/src/$1
+    。 $is_sh_dir/src/$1
 }
 
 # 修改wget命令以支持进度条和下载速度
@@ -159,19 +159,19 @@ download() {
     case $1 in
         core)
             [[ ! $is_core_ver ]] && is_core_ver=$(_wget -qO- "https://api.github.com/repos/${is_core_repo}/releases/latest?v=$RANDOM" | grep tag_name | egrep -o 'v([0-9.]+)')
-            [[ $is_core_ver ]] && link="https://gh-proxy.com//${is_core_repo}/releases/download/${is_core_ver}/${is_core}-${is_core_ver:1}-linux-${is_arch}.tar.gz"
+            [[ $is_core_ver ]] && link="https://ghfast.top//${is_core_repo}/releases/download/${is_core_ver}/${is_core}-${is_core_ver:1}-linux-${is_arch}.tar.gz"
             name=$is_core_name
             tmpfile=$tmpcore
             is_ok=$is_core_ok
             ;;
         sh)
-            link=https://gh-proxy.com/github.com/${is_sh_repo}/releases/latest/download/code.tar.gz
+            link=https://ghfast.top/github.com/${is_sh_repo}/releases/latest/download/code.tar.gz
             name="$is_core_name 脚本"
             tmpfile=$tmpsh
             is_ok=$is_sh_ok
             ;;
         jq)
-            link=https://gh-proxy.com/github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-$is_arch
+            link=https://ghfast.top/github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-$is_arch
             name="jq"
             tmpfile=$tmpjq
             is_ok=$is_jq_ok
